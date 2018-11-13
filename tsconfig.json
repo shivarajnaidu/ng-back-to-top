@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-back-to-top": [
+        "dist/ng-back-to-top"
+      ],
+      "ng-back-to-top/*": [
+        "dist/ng-back-to-top/*"
+      ]
+    }
   }
 }

@@ -129,6 +129,46 @@
           }
         }
       }
+    },
+    "ng-back-to-top": {
+      "root": "projects/ng-back-to-top",
+      "sourceRoot": "projects/ng-back-to-top/src",
+      "projectType": "library",
+      "prefix": "ng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-back-to-top/tsconfig.lib.json",
+            "project": "projects/ng-back-to-top/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-back-to-top/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-back-to-top/src/test.ts",
+            "tsConfig": "projects/ng-back-to-top/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-back-to-top/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-back-to-top/tsconfig.lib.json",
+              "projects/ng-back-to-top/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-back-to-top-app"

@@ -1,0 +1,1 @@
+ng build --prod ng-back-to-top

@@ -1,0 +1,6 @@
+.fixed-back-to-top-btn-container {
+    position: fixed;
+    right: 0;
+    bottom: 2rem;
+    cursor: pointer;
+}
