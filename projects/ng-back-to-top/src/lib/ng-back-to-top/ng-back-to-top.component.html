@@ -1,4 +1,8 @@
-<p>
-  ng-back-to-top works!
-</p>
-<ng-content></ng-content>
+<div class="ng-back-to-top" [ngClass]="btnClasses">
+  <div #wrapper>
+    <ng-content></ng-content>
+  </div>
+  <p *ngIf="!wrapper.innerHTML.trim()">
+    ng-back-to-top works!
+  </p>
+</div>
