@@ -1,6 +1,26 @@
 {
   "name": "ng-back-to-top",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Angular 6+ CSS Marquee (Alternative To HTML Marquee Tag)",
+  "keywords": [
+    "angular",
+    "ng-back-to-top",
+    "go-to-top",
+    "back-to-top",
+    "scrollling",
+    "angular 2+",
+    "angular 7"
+  ],
+  "author": "Yuvaraj",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shivarajnaidu/ng-back-to-top"
+  },
+  "bugs": {
+    "url": "https://github.com/shivarajnaidu/ng-back-to-top/issues"
+  },
+  "homepage": "https://github.com/shivarajnaidu/ng-back-to-top#readme",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
