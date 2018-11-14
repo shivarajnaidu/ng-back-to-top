@@ -18,6 +18,8 @@ const easeInOutQuad = (t, b, c, d) => {
 export class NgBackToTopComponent implements OnInit {
   btnClasses: any = {};
 
+  @Input() color = 'white';
+  @Input() bgColor = 'black';
 
   @Input() scrollDuration = 700;
   // browser window scroll (in pixels) after which the "back to top" link is shown
@@ -27,7 +29,6 @@ export class NgBackToTopComponent implements OnInit {
   @Input() scrolling = false;
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(event) {
-    console.log('Scrolling....');
     if (!this.scrolling) {
       this.scrolling = true;
       (!window.requestAnimationFrame) ?
@@ -37,7 +38,6 @@ export class NgBackToTopComponent implements OnInit {
   }
 
   @HostListener('click', ['$event']) onClick(event) {
-    console.log('Clicked....');
     event.preventDefault();
     (!window.requestAnimationFrame) ? window.scrollTo(0, 0) : this.scrollTop(this.scrollDuration);
   }
@@ -50,20 +50,12 @@ export class NgBackToTopComponent implements OnInit {
 
   private checkBackToTop() {
     const windowTop = window.scrollY || document.documentElement.scrollTop;
-    if (windowTop > this.offset) {
-      this.btnClasses = 'ng-back-to-top--show';
-    } else {
-      this.btnClasses = '';
-    }
+    this.btnClasses = (windowTop > this.offset) ? 'ng-back-to-top--show' : '';
 
     if (windowTop > this.offsetOpacity) {
-      this.btnClasses = 'ng-back-to-top--fade-out';
+      this.btnClasses = `${this.btnClasses} ng-back-to-top--fade-out`;
     }
-    /**
-     * (windowTop > this.offset) ? addClass(backTop, 'ng-back-to-top--show') : removeClass(backTop, 'ng-back-to-top--show', 
-     * 'ng-back-to-top--fade-out');
-     * */
-    // (windowTop > offsetOpacity) && addClass(backTop, 'ng-back-to-top--fade-out');
+
     this.scrolling = false;
   }
 

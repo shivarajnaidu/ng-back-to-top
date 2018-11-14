@@ -1,17 +1,29 @@
-.ng-back-to-top {
-    display: inline-block;
-    height: 50px;
-    width: 100px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    /* image replacement properties */
-    overflow: hidden;
-    /* text-indent: 100%; */
-    white-space: nowrap;
-    background-color: red;
-    /* background: rgba(232, 98, 86, 0.8) url(../img/ng-back-to-top-arrow.svg) no-repeat center 50%; */
+.ng-back-to-top.fallback-btn {
+	background-color: #000;
+	color: #fff;
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	right: 1rem;
+	bottom: 2rem;
+	cursor: pointer;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 3;
+    font-weight: bolder;
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s 0s, visibility 0s .3s, background-color .3s 0s;
+}
+
+/* SVG styled */
+.ng-back-to-top svg {
+    display: block;
+    fill: green;
+    height: 14px;
+    margin: 10px auto 0;
+    width: 14px;
 }
 
 .ng-back-to-top.ng-back-to-top--show,
@@ -35,6 +47,7 @@
     background-color: #e86256;
     opacity: 1;
 }
+
 /* 
 @media only screen and (min-width: 768px) {
     .ng-back-to-top {

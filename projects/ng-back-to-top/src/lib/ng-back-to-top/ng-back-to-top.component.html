@@ -1,8 +1,12 @@
-<div class="ng-back-to-top" [ngClass]="btnClasses">
-  <div #wrapper>
-    <ng-content></ng-content>
-  </div>
-  <p *ngIf="!wrapper.innerHTML.trim()">
-    ng-back-to-top works!
-  </p>
+<div #ref>
+  <ng-content></ng-content>
+</div>
+<!-- Falback Button -->
+<div class="ng-back-to-top fallback-btn" [ngClass]="btnClasses" [ngStyle]="{
+  color: color,
+  backgroundColor: bgColor
+}" *ngIf="!ref.innerHTML.trim()">
+  <span>
+    &uarr;
+  </span>
 </div>
