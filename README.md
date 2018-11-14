@@ -1,27 +1,57 @@
-# NgBackToTopApp
+# ng-back-to-top
+Angular 2+ Back To Top Button Component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/shivarajnaidu)
 
-## Development server
+( This Library Is Using Angular CLI's Library Generation Command )
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to:
 
-## Code scaffolding
+### Install npm 
+```
+   npm install ng-back-to-top --save
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Simple Example
 
-## Build
+#### Import Module
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-## Running unit tests
+import { AppComponent } from './app.component';
+import { NgBackToTopModule } from 'ng-back-to-top';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgBackToTopModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Use Component
+```html
+<div>
+  <ng-back-to-top bgColor="orange"></ng-back-to-top>
+</div>
+```
 
-## Further help
+## API
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### input property
+
+`color` property is available to change the color of default button arrow
+
+`bgColor` this property can change the background color of back to top button
+
+## Any contributions are appreciated.
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/shivarajnaidu)
