@@ -39,11 +39,13 @@ export class AppModule { }
 ```
 
 #### Use Component
+
 ```html
 <div>
-  <ng-back-to-top bgColor="orange"></ng-back-to-top>
+  <ng-back-to-top></ng-back-to-top>
 </div>
 ```
+
 
 ## API
 
@@ -52,6 +54,19 @@ export class AppModule { }
 `color` property is available to change the color of default button arrow
 
 `bgColor` this property can change the background color of back to top button
+
+
+#### Use Component With Custom Design / Content 
+
+```html
+<div>
+  <ng-back-to-top>
+    <div style="font-weight: bold; padding: 10px;">
+      Go To Top
+    </div>
+  </ng-back-to-top>
+</div>
+```
 
 ## Any contributions are appreciated.
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/shivarajnaidu)
