@@ -1,7 +1,7 @@
 {
   "name": "ng-back-to-top",
-  "version": "0.0.3",
-  "description": "Angular 6+ CSS Marquee (Alternative To HTML Marquee Tag)",
+  "version": "1.0.0",
+  "description": "Angular 2+ Back To Top Button Component ",
   "keywords": [
     "angular",
     "ng-back-to-top",
