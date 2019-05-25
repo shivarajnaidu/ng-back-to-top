@@ -2,10 +2,7 @@
   <ng-content></ng-content>
 </div>
 <!-- Falback Button -->
-<div class="ng-back-to-top fallback-btn" [ngClass]="btnClasses" [ngStyle]="{
-  color: color,
-  backgroundColor: bgColor
-}" *ngIf="!ref.innerHTML.trim()">
+<div class="ng-back-to-top fallback-btn" [ngClass]="btnClasses" [ngStyle]="getStyles()" *ngIf="!ref.innerHTML.trim()">
   <span>
     &#9650;
   </span>

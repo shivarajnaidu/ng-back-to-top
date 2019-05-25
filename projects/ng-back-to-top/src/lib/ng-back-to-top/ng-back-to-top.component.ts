@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, ChangeDetectionStrategy } from '@angular/core';
 
 const easeInOutQuad = (t, b, c, d) => {
   t /= d / 2;
@@ -13,7 +13,8 @@ const easeInOutQuad = (t, b, c, d) => {
 @Component({
   selector: 'ng-back-to-top',
   templateUrl: './ng-back-to-top.component.html',
-  styleUrls: ['./ng-back-to-top.component.css']
+  styleUrls: ['./ng-back-to-top.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgBackToTopComponent implements OnInit {
   btnClasses: any = {};
@@ -28,24 +29,43 @@ export class NgBackToTopComponent implements OnInit {
   offsetOpacity = 1200;
   @Input() scrolling = false;
 
+
+
+  constructor() {
+    this.checkBackToTop = this.checkBackToTop.bind(this);
+  }
+
+  ngOnInit() {
+  }
+
   @HostListener('window:scroll', ['$event']) onWindowScroll(event) {
-    if (!this.scrolling) {
-      this.scrolling = true;
-      (!window.requestAnimationFrame) ?
-        setTimeout(this.checkBackToTop.bind(this), 250) :
-        window.requestAnimationFrame(this.checkBackToTop.bind(this));
+    if (this.scrolling) {
+      return;
+    }
+
+    this.scrolling = true;
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(this.checkBackToTop);
+    } else {
+      setTimeout(this.checkBackToTop, 250);
     }
   }
 
   @HostListener('click', ['$event']) onClick(event) {
     event.preventDefault();
-    (!window.requestAnimationFrame) ? window.scrollTo(0, 0) : this.scrollTop(this.scrollDuration);
+    if (window.requestAnimationFrame) {
+      this.scrollTop(this.scrollDuration);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }
 
 
-  constructor() { }
-
-  ngOnInit() {
+  getStyles() {
+    return {
+      color: this.color,
+      backgroundColor: this.bgColor
+    };
   }
 
   private checkBackToTop() {
@@ -67,9 +87,11 @@ export class NgBackToTopComponent implements OnInit {
       if (!currentTime) {
         currentTime = timestamp;
       }
+
       const progress = timestamp - currentTime;
       const val = Math.max(easeInOutQuad(progress, start, -start, duration), 0);
       window.scrollTo(0, val);
+
       if (progress < duration) {
         window.requestAnimationFrame(animateScroll);
       }
